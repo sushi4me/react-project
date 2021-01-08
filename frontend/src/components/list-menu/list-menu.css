@@ -1,0 +1,17 @@
+.list-menu-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  width: 100%;
+  -ms-overflow-style: none;
+}
+
+.list-menu-container::-webkit-scrollbar {
+  display: none;
+}
+
+.list-menu {
+  list-style-type: none;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}

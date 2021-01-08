@@ -1,0 +1,15 @@
+.list-menu-header-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.list-menu-header-icon {
+  align-items: center;
+  display: flex;
+}
+
+.list-menu-header-label {
+  align-items: center;
+  display: flex;
+}

@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "eslint.run": "onType",
+    "eslint.alwaysShowStatus": true,
+    "eslint.packageManager": "npm",
+    "eslint.nodePath": "./node_modules",
+    "eslint.workingDirectories": ["frontend"],
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "git.ignoreLimitWarning": true
+  }
+}

@@ -1,0 +1,55 @@
+version: '3.3'
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    depends_on:
+      - frontend
+      - backend
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - frontend
+      - backend
+    volumes:
+      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/nginx/server.log:/etc/nginx/logs/server.log
+    networks:
+      - host-bridged
+  frontend:
+    build:
+      context: ./frontend/
+      dockerfile: dockerfile
+    container_name: frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/:/usr/src/app/
+    networks:
+      - host-bridged
+  backend:
+    build:
+      context: ./backend/
+      dockerfile: dockerfile
+    command: /usr/src/app/docker-entrypoint.sh
+    container_name: backend
+    ports:
+      - 5000:5000
+    volumes:
+      - ./backend/:/usr/src/app/
+    networks:
+      - host-bridged
+  redis:
+    depends_on:
+      - frontend
+    networks:
+      - host-bridged
+
+networks:
+  container-only:
+    driver: bridge
+    internal: true
+  host-bridged:
+    driver: bridge

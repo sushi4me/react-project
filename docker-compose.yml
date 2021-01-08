@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  redis:
+    image: redis:5.0.8
+    container_name: test-redis
+    ports:
+      - 6379
+    restart: always
+    volumes:
+      - ./config/redis/redis.conf:/redis.conf
+      - ./config/redis/:/data/
+    command: redis-server /redis.conf
+    networks:
+      - container-only
+      - host-bridged
+
+networks:
+  container-only:
+    driver: bridge
+    internal: true
+  host-bridged:
+    driver: bridge
