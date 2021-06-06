@@ -13,6 +13,26 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
     },
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#88b04b",
+      "activityBar.activeBorder": "#e9f0f5",
+      "activityBar.background": "#88b04b",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#e9f0f5",
+      "activityBarBadge.foreground": "#15202b",
+      "editorGroup.border": "#88b04b",
+      "panel.border": "#88b04b",
+      "sideBar.border": "#88b04b",
+      "statusBar.background": "#6c8c3c",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#88b04b",
+      "titleBar.activeBackground": "#6c8c3c",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#6c8c3c99",
+      "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#6c8c3c"
   }
 }

@@ -1,0 +1,17 @@
+FROM node:latest
+
+# Go to the working directory
+WORKDIR /
+
+# Copy over
+COPY . ./
+
+# Install
+RUN npm config set strict-ssl false
+RUN npm install
+
+# Export the port
+EXPOSE 5000
+
+# Start
+CMD npm run watch:dev

@@ -1,6 +1,8 @@
 {
-  "editor.formatOnSave": true,
-  "editor.rulers": [80, 120],
+  "editor.rulers": [
+    80,
+    120
+  ],
   "editor.tabSize": 2,
   "workbench.colorCustomizations": {
     "activityBar.background": "#7295b1",
@@ -22,6 +24,7 @@
     "editorGroup.border": "#7295b1"
   },
   "peacock.color": "#557c9b",
-  "eslint.workingDirectories": ["./frontend/", "./backend/"],
-  "git.ignoreLimitWarning": true
+  "eslint.workingDirectories": ["./react-app/", "./web-api/"],
+  "git.ignoreLimitWarning": true,
+  "editor.formatOnSave": true
 }

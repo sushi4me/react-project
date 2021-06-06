@@ -18,29 +18,35 @@ services:
       - ./config/nginx/server.log:/etc/nginx/logs/server.log
     networks:
       - host-bridged
+
   frontend:
     build:
-      context: ./frontend/
+      context: ./react-app/
       dockerfile: dockerfile
     container_name: frontend
+    environment:
+      - NODE_ENV=development
     ports:
       - 3000:3000
     volumes:
-      - ./frontend/:/usr/src/app/
+      - ./react-app/:/usr/src/app/
+      - /usr/src/app/node_modules/
     networks:
       - host-bridged
+
   backend:
     build:
-      context: ./backend/
+      context: ./web-api/
       dockerfile: dockerfile
-    command: /usr/src/app/docker-entrypoint.sh
     container_name: backend
     ports:
       - 5000:5000
     volumes:
-      - ./backend/:/usr/src/app/
+      - ./web-api/:/usr/src/app/
+      - /usr/src/app/node_modules/
     networks:
       - host-bridged
+
   redis:
     depends_on:
       - frontend
@@ -51,5 +57,6 @@ networks:
   container-only:
     driver: bridge
     internal: true
+
   host-bridged:
     driver: bridge

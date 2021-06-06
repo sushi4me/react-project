@@ -1,11 +1,39 @@
 version: '3.3'
 
 services:
+  frontend:
+    container_name: react-app
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+    build:
+      context: ./react-app
+      dockerfile: dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./react-app/src/:/src/
+    networks:
+      - host-bridged
+
+  backend:
+    container_name: web-api
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+    build:
+      context: ./web-api
+      dockerfile: dockerfile
+    ports:
+      - 5000:5000
+    volumes:
+      - ./web-api/src/:/src/
+    networks:
+      - host-bridged
+
   redis:
     image: redis:5.0.8
-    container_name: test-redis
+    container_name: prj-redis
     ports:
-      - 6379
+      - 6379:6379
     restart: always
     volumes:
       - ./config/redis/redis.conf:/redis.conf
@@ -19,5 +47,6 @@ networks:
   container-only:
     driver: bridge
     internal: true
+
   host-bridged:
     driver: bridge

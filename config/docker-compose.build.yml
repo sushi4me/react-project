@@ -15,20 +15,23 @@ services:
       - ./config/nginx/server.log:/etc/nginx/logs/server.log
     networks:
       - host-bridged
+
   frontend:
-    build: ./frontend/
+    build: ./react-app/
     container_name: frontend
     networks:
       - host-bridged
     volumes:
-      - ./frontend/:/usr/src/app/
+      - ./react-app/:/usr/src/app/
+
   backend:
-    build: ./backend/
+    build: ./web-api/
     container_name: backend
     networks:
       - host-bridged
     volumes:
-      - ./backend/:/usr/src/app/
+      - ./web-api/:/usr/src/app/
+
   redis:
     depends_on:
       - frontend
@@ -39,5 +42,6 @@ networks:
   container-only:
     driver: bridge
     internal: true
+
   host-bridged:
     driver: bridge

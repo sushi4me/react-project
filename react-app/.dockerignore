@@ -1,0 +1,9 @@
+*
+
+# Files
+!.env*
+!dockerfile*
+!package*.json
+# Directories
+!src
+!public

@@ -1,0 +1,9 @@
+*
+
+# Files
+!dockerfile*
+!nodemon.json
+!package*.json
+# Directories
+!src
+!dist-server
